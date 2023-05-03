@@ -40,4 +40,10 @@
 * 스테이징을 언스테이징으로 변경하는 git reset HEAD *
 </pre>
 
-test
+브랜치에 관련된 GIT 명령어
+master브랜치를 특정 파일로 넘기기
+<pre>
+1. git checkout better_branch
+2. git merge --strategy=ours master
+3. git checkout master
+4. git merge better_branch
