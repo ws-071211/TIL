@@ -39,3 +39,5 @@
 * 마직막 커밋 상태로 되돌리는 git reset --hard HEAD
 * 스테이징을 언스테이징으로 변경하는 git reset HEAD *
 </pre>
+
+test
