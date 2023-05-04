@@ -143,3 +143,35 @@ lg = log --graph --abbrev-commit --decorate --format=format:'%C(cyan)%h%C(reset)
 ad = add
 tg = tag
 df = diff
+### git config 정리
+REM 사용자 이름 및 이메일
+<pre>
+git config --global user.name "Your name"
+git config --global user.name "Your email address"
+</pre>
+REM 설정 조회
+<pre>
+git config --global --list
+git config --list
+</pre>
+REM 출력 색상 활성화
+<code>
+git config == global color.ul"auto"
+</code>
+REM 개행문자 변경 비활성화
+<code>
+git config --global core.autocrlf false
+</code>
+REM SSL 사용 비활성화
+<code>
+git config --global http.sslVerigy false
+</code>
+REM 인증서 설정하기
+<code>
+git config --system http.sslcaino
+"C:\PortableApps\cmd_git\mingw32\ssl\certs\ca-bundle.crt"
+</code>
+REM 에디터 설정
+<code>
+git config --global core.editor
+</code>
