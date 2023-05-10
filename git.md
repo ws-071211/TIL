@@ -75,6 +75,7 @@ master브랜치를 특정 파일로 넘기기
 <code>git checkout -t origin/{가져올 브랜치의 이름}//ref</code>
 브랜치 이름 변경하기
 <code>git branch -m{새로운 이름}//ref</code>
+
 ---
 #### Tag관련 GIT명령어
 태그 생성
@@ -121,6 +122,7 @@ git pull upstream{브랜
 git gc
 git gc --aggressive
 </pre>
+
 ---
 #### 서버 설정 GIT 명령어
 강제 표시 설정
