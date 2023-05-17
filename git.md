@@ -177,4 +177,4 @@ REM 에디터 설정
 <code>
 git config --global core.editor
 </code>
-asdfasdfasdfasdf
+zxczxvxzcvcxvz
