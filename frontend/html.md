@@ -95,17 +95,93 @@ content 내의 연속된 공백 또는 줄 바꿈은 하나의 공백으로 처�
 <q> ~ </q> 인용구
 <blockquote> ~ </blockquote> 긴 인용문
 ~~~
+**앵커 태그**
 하이퍼링크 태그
 ~~~
 <a> ~ </a> 하이퍼링크 연결
 ~~~
+**멀티미디어 태그**
 이미지 태그
 ~~~
-<img>~</img>
+<img>~</img> 이미지 삽입
+
 ~~~
+- `src` : 이미지 파일 경로
+- `title` : 이미지 제목
+- `width` : 이미지 가로 크기
+- `height` : 이미지 세로 크기
+- `alt` : 이미지 대체 텍스트
+- `style` : 이미지 스타일 정의
+- `border` : 이미지 테두리 두께
+오디오 태그
+~~~
+<audio>~</audio> 오디오 삽입
+~~~
+- `src` : 오디오 파일의 경로
+- `controls` : 오디오 파일의 재생 제어기 표시
+- `autoplay` : 자동 재생
+- `loop` : 반복 재생
+- `muted` : 초기에 음소거 상태
+- `preload` : 오디오 파일 미리 다운로드
+비디오 태그
+~~~
+<video>~</video> 비디오 삽입
+~~~
+- `src` : 비디오 파일의 경로
+- `controls` : 비디오 파일의 재생 제어기 표시
+- `autoplay` : 자동 재생
+- `width` : 비디오의 가로크기
+- `height` : 비디오의 세로크기
+- `loop` : 반복 재생
+- `muted` : 초기에 음소거 상태
+- `preload` : 비디오 파일 미리 다운로드
+- `poster` : 비디오의 썸네일
+
 리스트 태그
 ~~~
 <ul>~</ul>:순서없는 리스트
 <ol>~</ol>:순서있는 리스트
-<li>~</li>:<ul>과<ol>의하위 리스트
+<li>~</li>: <ul>과<ol>의 내용
+<dt>~</dt>:정의 리스트
+<dd>~</dd>:<dt>의 내용
 ~~~
+테이블 태그
+~~~
+<table> ~ </table>: 테이블 생성
+<tr> ~ </tr>: 테이블의 행(row) 생성
+<th> ~ </th>: 테이블의 헤드(head) 생성
+<td> ~ </td>: 테이블의 열(column) 생성
+<caption> ~ </caption>: 테이블의 캡션 설정
+<rowspan>: 셀을 세로로 병합, 병합하고 싶은 행의 수를 설정
+<colspan>: 셀을 가로로 병합, 병합하고 싶은 열의 수를 설정
+~~~
+**공간 분할 태그**
+
+블록 분할 태그
+~~~
+<div> 태그를 이용해 웹 문서의 전체 공간을 block 형식으로 분할함
+~~~
+인라인 분할 태그
+~~~
+<span> 태그를 이용해 웹 문서의 한 줄에 대해서 inline 형식으로 분할함
+~~~
+아이프레임 태그
+
+~~~
+<iframe src="basic.html" name="iframe_a" height="500px" width="400" title="Iframe Example"></iframe>
+<p><a href="http://www.suanlab.com" target="iframe_a">SuanLab.com</a></p>
+~~~
+
+~~~
+<span><a href="http://www.suanlab.com" target="if1">SuanLab</a></span> | 
+<span><a href="http://www.suanlab.com/youtube.html" target="if1">SuanLab Youtube</a></span><br>
+<iframe name="if1" width="700px" height="300px"></iframe>
+~~~
+
+- `<iframe>` 태그를 이용해 웹 문서 내에 다른 웹 문서를 표시할 때 사용
+- `src`: 포함할 페이지의 URL 정의
+- `width`: 너비
+- `height`: 높이
+- `title`: 아이프레임 제목
+- `name`: 링크 대상 이름
+- `scrolling`: 스크롤바
