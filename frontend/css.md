@@ -165,7 +165,7 @@ CSS
 div * { color: teal; text-decoration: underline; }
 ~~~
 ---
-##주석
+## 주석
 /*와*/ 사이에 작성된 문자를 주석으로 인식합니다.
 ~~~
 /* 주석 */
@@ -276,7 +276,7 @@ text-align 속성은 텍스트의 정렬 방향을 의미합니다.
 `#box2 { text-align: left; }`
 `#box3 { text-align: center; }`
 
-####background 속성
+#### background 속성
 background 속성은 태그의 배경을 지정하는 속성으로, font 속성과 비슷하게 세부적인 속성들을 한번에 쓸 수 있는 속성입니다.
 
 - background-color:배경 색
