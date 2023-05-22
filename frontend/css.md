@@ -338,3 +338,5 @@ position 속성은 태그를 어떻게 위치시킬지를 정의하며, 아래�
 `#box3 { position:relative }`
 `#box4 { position:fixed }`
 `#box5 { position:inherit }`
+
+여기까지 css 정리 끝
