@@ -96,9 +96,7 @@ master브랜치를 특정 파일로 넘기기
 </pre>
 #### 기타 GIT 명령어
 파일 삭제
-<code>
-git rm -- cached --ignore-unmatch[삭제할 파일명]
-</code>
+<code>git rm -- cached --ignore-unmatch[삭제할 파일명]</code>
 히스토리 삭제
 *목적:비밀번호, 아이디 등 비공개 정보가 담긴 파일을 실수로 오렸을 때 삭제하는 방법
 <pre>
@@ -110,9 +108,7 @@ git rm -- cached --ignore-unmatch[삭제할 파일명]
 히스토리에서 폴더 삭제:
 <code>
 git filter-branch --tree-filter 'rm - rf vendor/gems'HEAD
-</code>
-리모트 주소 추가하여 로컬에 싱크하기
-<pre>
+</code>리모트 주소 추가하여 로컬에 싱크하기<pre>
 git remote add upstream{리모트 주소}
 git pull upstream{브랜
 치명}
@@ -126,9 +122,7 @@ git gc --aggressive
 ---
 #### 서버 설정 GIT 명령어
 강제 표시 설정
-<code>
-git config receive.denynonfast forwards false
-</code>
+<code>git config receive.denynonfast forwards false</code>
 Alias
 ~/.gitconfig 파일을 설정하여 Git 명령어 앨리어스를 지정할 수 있다.
 
@@ -157,24 +151,14 @@ git config --global --list
 git config --list
 </pre>
 REM 출력 색상 활성화
-<code>
-git config == global color.ul"auto"
-</code>
+<code>git config == global color.ul"auto"</code>
 REM 개행문자 변경 비활성화
-<code>
-git config --global core.autocrlf false
-</code>
+<code>git config --global core.autocrlf false</code>
 REM SSL 사용 비활성화
-<code>
-git config --global http.sslVerigy false
-</code>
+<code>git config --global http.sslVerigy false</code>
 REM 인증서 설정하기
-<code>
-git config --system http.sslcaino
-"C:\PortableApps\cmd_git\mingw32\ssl\certs\ca-bundle.crt"
-</code>
+<code>git config --system http.sslcaino
+"C:\PortableApps\cmd_git\mingw32\ssl\certs\ca-bundle.crt"</code>
 REM 에디터 설정
-<code>
-git config --global core.editor
-</code>
-zxczxvxzcvcxvz
+<code>git config --global core.editor</code>
+![Git](https://tecoble.techcourse.co.kr/static/d0f3454b578873dff73251477ca0e729/c4b07/dot-git.jpg)
