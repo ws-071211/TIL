@@ -171,7 +171,6 @@ content 내의 연속된 공백 또는 줄 바꿈은 하나의 공백으로 처�
 <iframe src="basic.html" name="iframe_a" height="500px" width="400" title="Iframe Example"></iframe>
 <p><a href="http://www.suanlab.com" target="iframe_a">SuanLab.com</a></p>
 ~~~
-
 ~~~
 <span><a href="http://www.suanlab.com" target="if1">SuanLab</a></span> | 
 <span><a href="http://www.suanlab.com/youtube.html" target="if1">SuanLab Youtube</a></span><br>
@@ -185,4 +184,12 @@ content 내의 연속된 공백 또는 줄 바꿈은 하나의 공백으로 처�
 - `title`: 아이프레임 제목
 - `name`: 링크 대상 이름
 - `scrolling`: 스크롤바   
-- `<form>`                                                                     
+- `<form>`        
+
+
+퇴출된 태그
+`<font>`:글자의 세부사향을 조정
+- `size`:글자의 크기조정
+- `color`:글자의 색 변경
+`<font>`가 퇴출된 이유:웹 페이지의 정보로서의 가치가 현격히 떨어지는 문제를 갖게 되기 때문에
+하지만 css에서 사용 가능
