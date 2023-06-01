@@ -132,6 +132,7 @@
         <input type="button" value="버튼">
 <!--button은 지금은 쓸모없고 나중에 java script배우고 사용가능-->
     </form>
+    <p>
     <form action="">
         <p>
             <label for="id.txt">
@@ -143,6 +144,23 @@
         <label for="color_choice"><input id="color_choice"type="checkbox" name="color_choice">red</label>
         <!--라벨로 checkbox를 감쌀 경우 글자도 체크 박스의 범위로 간주함-->
         <input type="submit">
-    </form>
+    </form></p>
+    <p>
+    <form action="http://localhost/method.php" method="post">
+        <input type="text" name="id">
+        <input type="password" name="ps">
+        <input type="submit">
+        <!--보이지 않게 전송하는 post 링크창에 보이게 전송하는 get-->
+    </form></p>
+    <form action=""method="post"enctype="multipart/form-data">
+        <!--위의 태그의 method와 enctype도 서버쪽 개발자가 챙기면 좋음-->
+        <!--파일 업로드 버튼을 만들 때 이렇게 작성-->
+    <p>
+        <input type="file"name="profile">
+        <!--name부분은 서버쪽 개발자가 챙기면 좋음-->
+        <!--파일 input태그도 이름이 필요함-->
+        <input type="submit">
+    </p>
+</form>
 </body>
 </html>
