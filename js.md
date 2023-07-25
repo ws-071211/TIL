@@ -19,4 +19,4 @@ javascript는 console에서 사용가능하다.
 return으로 호출한 곳에 값을 돌려줄수도 있다.
 값은 숫자에만 구분되지 않는다.
 구조체 안에 function을 다시 집어넣을 수도 있다.
-javascript로 html의 값을 수정할 수도 있다.
+javascript로 html의 값을 수정할 수도 있다.  
