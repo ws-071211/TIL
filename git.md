@@ -18,6 +18,8 @@
 커밋된 파일을 원격 저장소로 보내는 <code>git push</code>
 
 원격 저장소를 추가하는 <code>git remote add origin {원격서버주소}</code>
+
+
 ---
 #### 커밋 관련 GIT 명령어
 최신 4개의 커밋을 하나로 합치는 <code>git rebase -i HEAD~4</code>
