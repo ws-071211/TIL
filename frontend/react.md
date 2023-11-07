@@ -27,3 +27,40 @@ React는 웹 프레임워크이자 자바스크립트의 라이브러리 중 하
 3. update:상태가 변할 떄
 
 ## hooks
+- useState:컴포넌트의 상태를 간편하게 생성 및 업데이트 해주는 도구를 제공해줌
+
+  사용법
+  ```javascript
+  import {useState} from 'react';
+  //useState의 사용을 위한 import
+  const [coin,setcoin] = useState(/*초기값*/);
+  //useState의 변수 선언
+  setcoin(1);
+  //coin의 값 변경
+  ```
+  
+
+
+- useEffect:컴포넌트가 렌더링 될 때마다 특정 작업을 실행할 수 있도록 하는 hook
+
+  컴포넌트가 mount 되었을 때, unmount 되었을 때, update 되었을 때의 특정 작업을 처리할 수 있다.
+
+  사용법
+  ```javascript
+  import {useEffect} from 'react'
+  //useEffect의 사용을 위한 import
+  useEffect(()=>{
+
+  },[])
+  //컴포넌트가 마운트 될 때마다 실행됨
+  useEffect(()=>{
+
+  })
+  //컴포넌트가 렌더링 될 때마다 실행됨
+  useEffect(()=>{
+
+  },[name])
+  //name값이 업데이트 될 떄마다 실행됨
+  useEffect(()=>{
+    
+  })
