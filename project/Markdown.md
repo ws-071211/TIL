@@ -1,8 +1,9 @@
 마크다운
 ==============================
 마크다운의 특징
--------------------------------
-마크다운(markdown)은 읽고 쓰는 것이 쉽고 HTML 변환이 가능한 텍스트 기반의 마크업언어이다. 특수기호와 문자를 이용한 매우 간단한 구조의 문법을 가지고 있어 웹에서도 보다 빠른 컨텐츠 작성과 인식이 가능하다.
+-------------------------------   
+마크다운(markdown)은 읽고 쓰는 것이 쉽고 HTML 변환이 가능한 텍스트 기반의 마크업언어이다. 특수기호와 문자를 이용한 매우 간단한 구조의 문법을 가지고 있어 웹에서도 보다 빠른 컨텐츠 작성과 인식이 가능하다.   
+
 ---
 마크 다운의 장점과 단점
 ------------------------
@@ -95,16 +96,12 @@ ___
   ---
   #### 코드블럭
   코드블럭은 2가지의 방식을 사용할 수 있다.
-* <code> < pre>< code>{code}< /code>< /pre> </code>
- <pre>
- <code>
- public class BootSpringBootApplication{
+* `<pre><code>{code}</code></pre> `
+ <pre><code> public class BootSpringBootApplication{
    public static woid main(String[] args){
      System.out.println("Hello, Honeymon");
    }
-  }
-  </code>
-  </pre>
+  }  </code></pre>
  * 코드블럭코드(```)'사용
  ```
  public class BootSpringBootApplication{
@@ -123,13 +120,11 @@ ___
 Link: [Google][googlelink]
 [googlelink]: https://google.com "Go google"
 </pre>
-Link: googleㅣ
 * 외부링크
 <pre>
 사용문법: [Title](link)
 적용예: [google](https://google.com,"google link")
 </pre>
-Link: google
 * 자동연결
 <pre>
 일반적인 URL 혹은 이메일주소인 경우 적절한 형식으로 링크를 형성한다.

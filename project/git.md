@@ -98,8 +98,8 @@ master브랜치를 특정 파일로 넘기기
 #### 기타 GIT 명령어
 파일 삭제
 <code>git rm -- cached --ignore-unmatch[삭제할 파일명]</code>
-히스토리 삭제
-*목적:비밀번호, 아이디 등 비공개 정보가 담긴 파일을 실수로 오렸을 때 삭제하는 방법
+히스토리 삭제   
+* 목적:비밀번호, 아이디 등 비공개 정보가 담긴 파일을 실수로 오렸을 때 삭제하는 방법
 <pre>
 * git clone[url]//소스 다운로드
 * cd [folder_name]//해당 폴더 이동
@@ -130,12 +130,12 @@ Alias
 ~/.gitconfig > alias 부분:
 
 [alias]
-br = branch
-co = checkout 
-rb = rebase
-st = status
-pl = pull
-ps = push
+br = branch   
+co = checkout    
+rb = rebase   
+st = status   
+pl = pull   
+ps = push   
 lg = log --graph --abbrev-commit --decorate --format=format:'%C(cyan)%h%C(reset) - %C(green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)-%an%C(reset)%C(yellow)%d%C(reset);--all
 ad = add
 tg = tag
@@ -152,14 +152,16 @@ git config --global --list
 git config --list
 </pre>
 REM 출력 색상 활성화
-<code>git config == global color.ul"auto"</code>
+<code>git config == global color.ul"auto"</code>   
 REM 개행문자 변경 비활성화
-<code>git config --global core.autocrlf false</code>
+<code>git config --global core.autocrlf false</code>   
 REM SSL 사용 비활성화
-<code>git config --global http.sslVerigy false</code>
+<code>git config --global http.sslVerigy false</code>   
 REM 인증서 설정하기
-<code>git config --system http.sslcaino
-"C:\PortableApps\cmd_git\mingw32\ssl\certs\ca-bundle.crt"</code>
+<code>git config --system http.sslcaino"C:\PortableApps\cmd_git\mingw32\ssl\certs\ca-bundle.crt"</code>   
 REM 에디터 설정
 <code>git config --global core.editor</code>
+
+
+
 ![Git](https://tecoble.techcourse.co.kr/static/d0f3454b578873dff73251477ca0e729/c4b07/dot-git.jpg)
