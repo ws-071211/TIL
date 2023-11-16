@@ -61,10 +61,12 @@ React는 웹 프레임워크이자 자바스크립트의 라이브러리 중 하
 
   },[name])
   //name값이 업데이트 될 떄마다 실행됨
-  useEffect(()=>{
-    
-  })
   ```
+- useRef: 저장공간 또는 DOM에 접근하기 위한 hooks이다.    
+javascript에 queryselector와 같이 특정 DOM에 접근해야하는 상황에서 사용한다
+  
+  - useRef로 관리하는 값은 값이 변해도 화면이 새로 랜더링되지 않는다.
+
 
 - useParams : react-router-dom에서 제공해주는 hooks 중 하나로 파라미터값을 URL을 통하여 넘겨받은 페이지에서 사용할 수 있게 해준다.
 ## custom hooks
