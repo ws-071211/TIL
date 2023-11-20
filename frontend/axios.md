@@ -56,3 +56,28 @@ axios의 Request method에는 대표적으로 다음과 같은 것들이 있다.
 - POST : axios.post(url, data[, config])
 - PUT : axios.put(url, data[, config])
 - DELETE : axios.delete(url[, config])
+
+#### GET   
+
+get메서드가 필요한 상황은 크게 2개의 상황이 있다.     
+
+단순 데이터(페이지 요청,지정된 요청)를 요청을 수행할 때   
+파라미터 데이터를 포함시키는 경우 (사용자 번호에 따른 조회)
+
+#### POST
+
+post메서드에는 일반적으로 데이터를 Message body에 포함시켜 보낸다.   
+get메서드에서 params를 사용한 경우와 비슷하게 수행된다.   
+
+#### Delete
+
+delete 메서드에는 일반적으로 body가 비어있다.
+
+REST 기반 API 프로그램에서 데이터베이스에 저장되어 있는 내용을 삭제하는 목적으로 사용한다.
+
+하지만 query나 params가 많아져서 헤더에 많은 정보를 담을 수 없을 경우에는 data를 두번째 인자에 포함시켜줄 수 있다.
+
+#### PUT
+REST 기반 API 프로그램에서 데이터베이스를 수정/갱신할 때 사용한다.   
+PUT메서드는 서버에 있는 데이터베이스의 내용을 변경하는 것이 주 목적이다.   
+PUT메서드는 서버 내부적으로 get -> post 과정을 거치기 때문에 post 메서드와 비슷한 형태이다.
