@@ -1,21 +1,58 @@
-# axios
+# axios   
+## axios란?
+- 브라우저,Node.js를 위한 Promise Api를 활용한 http 비동기 통신 라이브러리이다.
+- 백엔드와 프론트엔드의 통신을 쉽게하기 위해 Ajax도 더불어 사용한다.
 
-- Promise 기반의 http 비동기 통신 라이브러리이며 http 메서드의 전부를 지원한다.
+## 특징
+- 운영 환경에 따라 브라우저의 XMLHttpRequest 객체 또는 Node.js의 http api 사용함
+- Promise Api를 사용함
+- 요청과 응답데이터의 변형
+- HTTP 요청 취소
+- HTTP 요청과 응답을 JSON 형태로 자동 변경
 
-### HTTP 메서드
-  서버에 주어진 리소스에 수행하길 원하는 행동, 서버가 수행해야 할 동작을 지정하는 요청을 보내는 방법
- 
-주요 메서드
+## Fetch Api와의 차이점?
+axios는 별도의 설치가 필요하지만 fetch는 브라우저에 빌트인이라서 설치할 필요가 없다.   
+axios는 XSRF 보호를 해주고 data 속성을 사용하고 자동으로 JSON 형식으로 변환되고 요청 취소와 타임아웃을 걸 수 있다.   
+fetch는 별도의 보호가 없으며 body 속성을 사용하고 .json()메서드를 사용해야 하고 요청을 취소하고 타임아웃을 걸 수 있는 기능이 없다.   
+한 마디로 axios가 fetch에 비해 간편하다.
 
-- GET: 리소스 조회
-- POST: 요청 데이터 처리(주로 등록에 사용)
-- PUT: 리소스 덮어쓰기(해당 리소스가 없을 시 생성)
-- PATCH: 리소스 부분 변경(PUT은 전체 변경, PATCH는 일부만 변경)
-- DELETE: 리소스 삭제
+## axios 사용법
+### axios 설치하는 법
+```
+npm install axios
+```
 
-기타 메서드
-- HEAD: GET과 동일하지만 메시지 부분을 제외한 부분만 제외하고, 상태 줄과 헤더만 반환
-- OPTIONS: 대상 리소스에 대한 통신 가능 옵션을 설명(주로 CORS에서 사용)
-    >CORS란?
-    >
-    >브라우저에서 보안적인 이유로 거절하는 cross-origin HTTP 요청들을 
+### axios 문법 구조
+```javascript
+axios({
+  url: 'https://wordlist/days', 
+  method: 'get',
+  data: { 
+    day: '1'
+  }
+});
+```
+### axios 요청 파라미터   
+- method : 요청방식(기본은 get)   
+- url : 서버 주소
+- baseURL : url을 상대경로로써 사용할 때 url 맨 앞에 붙는 주소.
+
+    - 예시로 url이 /day이고 baseURL이 `https://wordlist/days`이면, `https://wordlist/days/day`로 요청이 간다.
+
+- headers : 요청 헤더   
+- data : 요청 방식이 `PUT`, `POST`, `PATCH` 일때 body에 보내는 데이터   
+- params : URL 파라미터(url get방식을 객체로 표현한 것)   
+- timeout : 요청 timeout이 발동 되기 전 miliseconds의 시간을 요청. timeout보다 요청이 길어진다면, 요청은 취소된다.
+- responseType : 서버가 응답해주는 데이터의 타입 지정(arraybuffer, document, json, text, stream, blob)
+- withCredentials : cross-site access-control 요청을 허용 유무. 이를 true로 하면 cross-origin으로 쿠키값을 전달 할 수 있다.
+
+### Axios 단축 메소드
+
+axios를 편리하게 사용하기 위해 모든 요청 메소드는 aliases가 제공된다.    
+위 처럼 객체 옵션을 이것저것 주면 가독성이 떨어지고 너저분하니, 함수형으로 재구성하여 나눠논 것으로 이해하면 된다.    
+axios의 Request method에는 대표적으로 다음과 같은 것들이 있다.
+
+- GET : axios.get(url[, config])
+- POST : axios.post(url, data[, config])
+- PUT : axios.put(url, data[, config])
+- DELETE : axios.delete(url[, config])
