@@ -12,4 +12,35 @@ styled-components를 사용하기 위해서는 styled를 import 해야한다.
 ```javascript
 import styled from "styled-components";
 ```
-html
+html의 모든 태그에 스타일을 적용할 수 있다.     
+적용 방법은 styled.tagName과 같이 작성한 뒤, 적용하고자 하는 CSS 스타일을 작성하면 된다.
+```javascript
+import styled from "styled-components";
+
+const CD = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const PD = styled.div`
+  background-color: #cf6a87;
+  width: 100px;
+  height: 100px;
+`;
+
+const VD = styled.div`
+  background-color: #574b90;
+  width: 100px;
+  height: 100px;
+`;
+
+const App = () => {
+  return (
+    <CD>
+      <PD />
+      <VD />
+    </CD>
+  );
+};
+```
