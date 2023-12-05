@@ -44,3 +44,37 @@ const App = () => {
   );
 };
 ```
+전역 사용을 하려면 styled 대신 createGlobalStyle를 사용하면 된다.
+
+## Props 이용
+1. 컴포넌트의 props에 값을 설정한다.
+```javascript
+function App(){
+  return(
+    <Block bgcolor="blue"/>
+    <Block bgcolor="red"/>
+  )
+}
+```
+2. styled-components에서 props를 가져와서 적용시킨다.   
+(`${(props) => props.bgColor};`처럼 사용하면 된다.)
+```javascript
+  const Block = styled.div`
+    width: 100px;
+    height: 100px;
+    background-color: ${(props) => props.bgColor};
+  `;
+```
+## 상속
+컴포넌트 스타일을 상속받을 수 있다.
+styled(Block): Block의 컴포넌트 스타일을 가져옴
+```javascript
+const RoundBlock = styled(Block)`
+  border-radius: 50px;
+`;
+```
+## 애니메이션
+styled-components에서는 애니메이션 효과를 넣기위해서 keyframes를 import받아야한다.
+```javascript
+
+```
