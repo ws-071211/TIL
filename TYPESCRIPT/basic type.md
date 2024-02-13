@@ -8,7 +8,7 @@
 - Object
 - null & undefined
 
-## String 타입
+## string 타입
 ```typescript
 let str1:string = 'string';
 let str2:string = "string";
@@ -35,17 +35,17 @@ let bool:boolean = true;
 let arr1:number[] = {1,2,3}
 let arr2:string[] = {"밥","빵","면"}
 let arr3:any[] = {"밥",1,"빵",2}
-let arr5:Array<number> = {1,2,3};
+let arr4:Array<number> = {1,2,3};
 ```
 각 타입에 맞는 배열을 만들고 배열 안에 타입에 안 맞는 값이 있으면 오류를 띄워준다.   
-arr5같은 제네릭 배열타입으로도 사용할 수 있다.   
+arr4같은 제네릭 배열타입으로도 사용할 수 있다.   
 >### 제네릭 배열 타입을 사용하는 이유?
 > ```typescript
->interface user<t>{
+>interface user<T>{
 >    id:number;
 >    name:string;
 >    age:number;
->    item:Array<t>;
+>    item:Array<T>;
 >}
 >
 >interface male{
@@ -70,9 +70,10 @@ arr5같은 제네릭 배열타입으로도 사용할 수 있다.
 
 ## Object
 ```typescript
-    const user:object = {
+  const user:object = {
         name:"kim dong hak",
         age:16,
         projects:[coding,exercise]
     }
+    
 ```
