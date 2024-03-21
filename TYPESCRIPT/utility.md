@@ -11,11 +11,9 @@ interface Student{
   phone: number
 }
 
-type P = Partial<Student>
-//Student의 속성을 모두 옵셔널로 변경
-
 const stuName: Partial<Student> = {
-  name: 'Min'//옵셔널로 변경되었기때문에 name 속성만 사용가능
+  //Student의 속성을 모두 옵셔널로 변경
+  name: 'Min'
 };
 ```
 
@@ -28,10 +26,8 @@ interface Student{
   phone?: number
 }
 
-type R = Required<Student>
-//Student의 속성이 모두 옵셔널에서 필수로 변경
-
-const studentData: Required<Student> = {
+const studentData: Required<Student> = { 
+  //Student의 속성이 모두 옵셔널에서 필수로 변경
   name: 'Min'
 };//error
 
@@ -51,10 +47,8 @@ interface Student{
   phone: number
 }
 
-type Read = Readonly<Student>
-//Student의 속성을 모두 읽기전용으로 변경
-
-const studentData: Readonly<Student> = {
+const studentData: Readonly<Student> = { 
+  //Student의 속성을 모두 읽기전용으로 변경
   name: 'Min',
   grade: 2,
   phone: 01012341234
@@ -63,3 +57,54 @@ const studentData: Readonly<Student> = {
 student.name = 'kim';//error
 ```
 
+## `Record<K, T>`
+K를 속성으로 하고 T를 타입으로 갖는 타입을 반환한다.
+```ts
+type Value = {
+  name: string;
+  value: number
+}
+
+type naming = 'item' | 'price';
+
+const sell: Record<Key, number> = {
+   item: 'Candy',
+   price: 200
+};
+```
+
+## `Pick<T, K>`
+T의 속성 중에 K에 해당하는 속성만 모은 타입을 반환한다.
+```ts
+type Student = {
+  name: string,
+  grade: number,
+  phone: number,
+  email: string
+}
+
+type Key = 'name' | 'email';
+
+const sell: Pick<Student, Key> = {
+   name: 'Min',
+   email: 'test@gmail.com'
+};
+```
+
+## `Omit<T, K>`
+`Pick<T, K>`와 반대로 K를 제외한 T의 속성을 타입으로 반환합니다.  
+```ts
+type Student = {
+  name: string,
+  grade: number,
+  phone: number,
+  email: string
+}
+
+type Key = 'name' | 'email';
+
+const sell: Pick<Student, Key> = {
+   name: 'Min',
+   email: 'test@gmail.com'
+};
+```
