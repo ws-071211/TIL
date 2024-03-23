@@ -92,7 +92,7 @@ const sell: Pick<Student, Key> = {
 ```
 
 ## `Omit<T, K>`
-`Pick<T, K>`와 반대로 K를 제외한 T의 속성을 타입으로 반환합니다.  
+`Pick<T, K>`와 반대로 K를 제외한 T의 속성을 타입으로 반환한다.  
 ```ts
 type Student = {
   name: string,
@@ -107,4 +107,29 @@ const sell: Pick<Student, Key> = {
    name: 'Min',
    email: 'test@gmail.com'
 };
+```
+
+## `Exclude<T,U>`
+T에서 U를 제외한 타입을 반환한다.
+```ts
+type T = string | boolean | object | number ;
+type R = Exclude<T,string>;
+// R = boolean | object | number
+```
+
+## `Extract<T,U>`
+T와 U의 공통되는 타입을 반환한다.
+```ts
+type T = string | number ;
+type U = string | boolean ;
+type R = Extract<T,U> ;
+// R = string
+```
+
+## `NonNullable<T>`
+T에서 null과 undefined을 제외한 타입을 반환한다.
+```ts 
+type T = string | null | number | undefined ;
+type R = NonNullable<T> ;
+// R = string | number
 ```
