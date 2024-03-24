@@ -133,3 +133,32 @@ type T = string | null | number | undefined ;
 type R = NonNullable<T> ;
 // R = string | number
 ```
+
+## `Parameters<T>`
+함수를 T로 받아 함수의 매개변수 타입을 튜플 타입으로 반환한다.
+```ts
+function T(a: string, b: number){
+  return `[${a}, ${b}]`;
+}
+
+type R = Parameters<typeof T>;
+// type R = [string, number];
+```
+
+## `ConstructorParameters<T>`
+생성자의 parameter 타입을 튜플 형식으로 반환한다.  
+`Parameters<T>`와 비슷한 역할을 한다.
+```ts
+class E {
+  a: string;
+  b: number;
+
+  constructor(a: string, b: number){
+    this.a = a;
+    this.b = b;
+  }
+}
+
+type R = ConstructorParameters<typeof E>;
+//type R = [a: string, b: number]
+```
