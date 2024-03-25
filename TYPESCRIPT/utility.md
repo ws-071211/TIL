@@ -162,3 +162,25 @@ class E {
 type R = ConstructorParameters<typeof E>;
 //type R = [a: string, b: number]
 ```
+
+## `ReturnType<T>`
+함수를 T로 받아 T의 return 타입으로 반환
+```ts
+function T (str: string):number {
+  return +str
+}
+
+type R = ReturnType<typeof T>;
+// R = number
+```
+
+## `InstanceType<T>`
+클래스의 생성자 인스턴스의 타입을 T로 받아 타입으로 반환
+```ts
+class T {
+  constructor(public a: string, public b: number){}
+}
+
+type R = InstanceType<typeof T>;
+//type R = { a: string, b: number}
+```
