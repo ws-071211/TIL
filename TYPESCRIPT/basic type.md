@@ -6,7 +6,9 @@
 - boolean
 - array
 - Object
+- Tuple
 - null & undefined
+- any
 
 ## string 타입
 ```typescript
@@ -75,5 +77,29 @@ arr4같은 제네릭 배열타입으로도 사용할 수 있다.
         age:16,
         projects:[coding,exercise]
     }
-    
 ```
+객체의 형태인 타입에만 사용할 수 있다.
+
+## Tuple
+```ts
+  const user = [name:string, age:number];
+```
+속성의 타입을 각각 다르게 설정해줄수있다.
+
+## null & undefined
+```ts
+  const user1:string|undefined = 'name'
+  const user2:string|null = 'name'
+```
+값이 없거나 정의되지않은 경우의 값이 들어갈 수 있다.
+
+## any 
+```ts
+  const user1:any = 'a';
+  const user2:any = 1;
+  const user3:any = true;
+  const user4:any = null;
+  const user5:any = {1,2,3};
+  const user6:any = [name: string, age: number];
+```
+어떤 타입이든지 상관없이 모두 받을 수 있다.
