@@ -101,9 +101,9 @@ type Student = {
   email: string
 }
 
-type Key = 'name' | 'email';
+type Key = 'grade' | 'phone';
 
-const sell: Pick<Student, Key> = {
+const sell: Omit<Student, Key> = {
    name: 'Min',
    email: 'test@gmail.com'
 };
