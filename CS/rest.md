@@ -40,6 +40,11 @@ REST의 원리를 따르는 API를 의미한다.
 - 파일확장자는 URI에 포함하지 않는다.
 - 행위를 포함하지 않는다.
 
-### RESTFUL API
+### RESTFUL
 - RESTFUL이란 REST의 원리를 따르는 시스템을 의미하는데 REST를 사용했다고 모두가 RESTFUL 한 것은 아니다.  REST API의 설계 규칙을 올바르게 지킨 시스템을 RESTfFUL하다 말할 수 있다.  
 - 모든 CRUD 기능을 POST로 처리 하는 API 혹은 URI 규칙을 올바르게 지키지 않은 API는 REST API의 설계 규칙을 올바르게 지키지 못한 시스템은 REST API를 사용하였지만 RESTFUL 하지 못한 시스템이라고 할 수 있다.
+
+### RESTFUL API
+- HTTP 프로토콜을 기반으로하는 웹 서비스 아키텍처이다.
+- 자원, 메소드, 메시지 등을 정의하여 클라이언트-서버 간의 통신을 가능하게 한다.
+- 표준 HTTP 메소드(GET, POST, PUT, DELETE)를 사용하여 서버와 통신한다.
