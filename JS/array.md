@@ -21,3 +21,31 @@ const sort_arr2 = arr.sort((a,b)=>b-a);
 console.log(sort_arr);
 console.log(sort_arr2);
 ```
+
+### Array.join()
+배열을 문자열로 변환해준다.
+```js
+const arr = ["a","p","p","l","e"];
+
+console.log(arr.join(''));//apple
+```
+
+### Array.reverse()
+배열의 순서를 반대로 뒤집는다.
+```js
+const arr = ["a","p","p","l","e"];
+
+console.log(arr.reverse());//elppa
+```
+
+### Array.slice()
+배열의 특정 부분만 반환해준다.
+```js
+const arr = [1,2,3,4,5];
+
+const slice = arr.slice(3);
+const slice2 = arr.slice(1,4);
+
+console.log(slice);//[4,5];
+console.log(slice2);//[2,3,4];
+```
