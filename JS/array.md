@@ -49,3 +49,24 @@ const slice2 = arr.slice(1,4);
 console.log(slice);//[4,5];
 console.log(slice2);//[2,3,4];
 ```
+
+### Array.map()
+배열의 아이템을 순서대로 받아 map안에 명령문을 실행한다.
+```js
+const arr = [1,2,3,4,5];
+const res = 0;
+
+arr.map(item=>res+=item);
+
+console.log(res);//15
+```
+
+### Array.push()
+배열의 끝에 새로운 아이템을 추가해준다.
+```js
+const arr = [1,2,3,4,5];
+
+arr.push(6);
+
+console.log(arr);//[1,2,3,4,5,6]
+```
