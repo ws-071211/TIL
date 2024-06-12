@@ -12,4 +12,23 @@ javascipt의 전역 상태관리 라이브러리이다.
 3. **변화는 순수함수로 작성되어야한다**  
 여기서 순수함수는 reducer를 가르키는데 reducer는 이전의 상태와 action을 받아 상태를 변화시켜 반환하는 순수함수이다.  
 그리고 reducer는 항상 같은 파라미터를 받았을 경우 항상 같은 출력값이 나와야한다.  
-그러한 이유로 new Date()를 사용하는 등의 작업은 reducer 바깥에서 처리해야한다.  
+그러한 이유로 new Date()를 사용하는 등의 작업은 reducer 바깥에서 처리해야한다. 
+
+## Redux 원리
+redux는 flux 구조를 따른다.  
+> flux란?  
+>페이스북에서 개발한 단방향 데이터 흐름을 가진 아키텍처이다.  
+
+- redux는 `action => reducer => store => UI`의 흐름이다.  
+- action은 store로 전달할 데이터인데 이 데이터는 js 객체 형식으로 되어있다.
+- reducer는 action을 확인하여 이전 state를 새 state로 반환해준다.
+- store는 상태들이 관리되는 저장공간이다.
+
+## Redux 사용
+설치
+```
+npm install redux
+npm install react-redux
+//or
+yarn add redux react-redux
+```
