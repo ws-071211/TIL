@@ -8,7 +8,7 @@
 const object1 = { a: 1, b: 2 };
 const object2 = { a: 1, b: 2 };
 
-console.log(object1 === object2); // false
+console.log(object1 == object2); // false
 ```
 객체의 내부값은 같은데 참조값이 다르기 때문에 false가 반환됩니다.
 그렇기때문에 객체state를 props로 사용하게 될 경우 재렌더링이 발생한다.
