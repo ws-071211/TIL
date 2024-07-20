@@ -8,5 +8,5 @@
 클라이언트가 처음 인증을 받을 때 access token과 refresh token을 받는데 access token에 권한이 담겨있다.  
 그리고 토큰이 탈취되면 위험하기 때문에 만료기간을 되도록 짧게 설정해야한다.
 
-## refresh token 
+## Refresh token 
 access token이 만료되었을 떄 refresh token이 있는지에 따라 다시 access token이 다시 생성된다.
