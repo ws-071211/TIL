@@ -15,10 +15,10 @@ console.log(object1 == object2); // false
 
 
 ## 깊은 비교
- 얕은 비교와 달리 깊은 비교는 객체의 경우에도 값으로 비교한다.
- ```
- const object1 = { a: 1, b: 2 };
+얕은 비교와 달리 깊은 비교는 객체의 경우에도 값으로 비교한다.
+```
+const object1 = { a: 1, b: 2 };
 const object2 = { a: 1, b: 2 };
 
 console.log(object1 === object2); // true
- ```
+```
