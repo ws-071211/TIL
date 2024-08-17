@@ -79,6 +79,7 @@ const Mypage = () => {
         console.log(error);
       )
   },[])
+  
   return(
     <S.WelcomeContainer>
       <S.WelcomeText>안녕하세요</S.WelcomeText>
