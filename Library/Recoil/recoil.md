@@ -137,9 +137,61 @@ const Mypage = () => {
 
 >**useRecoilValue()와 useSetRecoilState()를 왜 사용할까??**  
 useRecoilState()는 atom의 상태와 setter 함수를 모두 받을 수 있는데 왜 굳이 useRecoilValue()와 useSetRecoilState()를 사용할까?  
-useREcoilValue()와 useSetRecoilState()는 각각 atom의 상태 읽기와 atom의 값 변경을 위한 setter 함수의 기능만을 가지고 있는데 useRecoilState는 모든 기능을 가지고 있어 값만 읽는 용도로 사용하더라도 모든 기능을 가지고 있어 성능적으로 useRecoilValue()보다 떨어질 수 밖에 없다. useSetRecoilState()도 마찬가지다.
+useRecoilValue()와 useSetRecoilState()는 각각 atom의 상태 읽기와 atom의 값 변경을 위한 setter 함수의 기능만을 가지고 있다.
+하지만 useRecoilState는 모든 기능을 가지고 있어 값만 읽는 용도로 사용하더라도 모든 기능을 가지고 있어 성능적으로 useRecoilValue()보다 떨어질 수 밖에 없다. useSetRecoilState()도 마찬가지다.
 
 ### useResetRecoilState()
 
 atom의 값을 각 atom의 default로 초기화해준다.
 
+### selector
+
+atom의 상태를 기반으로 파생된 상태를 만들 때 사용된다.  
+atom의 상태를 기반으로 파생된 상태를 만들기 때문에 atom의 상태에 의존적이다.  
+주어진 상태에 따라서 값이 항상 같은 규칙으로 반환된다.
+
+```tsx
+import { selector } from "recoil";
+import { userDataState } from '@/recoil/atoms/atoms';
+
+export const validData = selector({
+  key: 'validData',
+  get: ({get})=>{
+    const userData = get(userDataState);
+    const valid = userData.role !== 'member';
+    return valid;
+  },
+})
+```
+
+위의 코드는 `userDataState`에 있는 role이 특정 기능에 접근이 가능한 권한인지 boolean으로 확인한 정보를 넘겨주는 selector이다.
+
+selector로 만들어진 데이터는 상태를 받아 권한이 알맞는지 확인 후 그 값을 통해 권한을 확인할 수 있다.
+
+```tsx
+function introduce() {
+  const validData = useRecoilValue(doubledCountState);
+
+  return (
+    //생략
+    <S.ModalWrapper>
+      <S.ModalText onClick={() => setToggleIntro(true)}>
+        introduce Modal
+      </S.ModalText>
+      <S.ModalContour />
+      {validData && (
+        <>
+          <S.ModalText>사용자 목록</S.ModalText>
+          <S.ModalContour />
+        </>
+      )}
+      <S.LogoutText onClick={() => logout.fetch()}>
+        로그아웃
+      </S.LogoutText>
+    </S.ModalWrapper>
+
+  );
+}
+
+export default Counter;
+```
