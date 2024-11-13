@@ -1,0 +1,161 @@
+#include <avr/io.h>
+#include <util/delay.h>
+#include <avr/interrupt.h>
+
+//  PC7 PC6 PC5 PC4 PC3 PC2 PC1 PC0    // PG2  PG1  PG0
+//  DB7 DB6 DB5 DB4 DB3 DB2 DB1 DB0    //  E   RW   RS
+
+volatile int isRun = 0;
+volatile unsigned int SEC = 0, MIN = 0, HOUR = 0;
+
+void COMMAND(unsigned char byte);    // COMMAND 함수 선언
+void DATA(unsigned char byte);        // DATA 함수 선언
+void init_system(void);                // init_system 함수 선언
+void init_LCD(void);                    // init_LCD 함수 선언
+
+void BLINK(unsigned int num) {
+   int i;
+   for (i = 0;  i < num; i++) {
+      _delay_ms(500);
+      COMMAND(0x08);
+      _delay_ms(500);
+      COMMAND(0x0c);
+   }
+}
+
+void STRING(unsigned char font[], unsigned char n) {
+   unsigned char i;
+   for (i = 0; i < n; i++) {
+      DATA(font[i]);
+   }
+}
+
+void MOVE(int y, int x) {
+   unsigned char data;
+   if (y == 1) data = 0x80+x-1;
+   else data = 0xc0+x-1;
+   COMMAND(data);
+}
+
+void SHIFT_R(unsigned int num){
+   int i;
+   for(i = 0; i < num; i++){
+      _delay_ms(500);
+      COMMAND(0b00011100);
+   }
+}
+
+void SHIFT_L(unsigned int num){
+   int i;
+   for(i = 0; i < num; i++){
+      _delay_ms(500);
+      COMMAND(0b00011000);
+   }
+}
+
+
+int main(void) {
+   DDRA = 0xff;
+   PORTA = 0x00;
+
+   SREG = 0x80;
+   EIMSK = 0xc0;
+   EICRB = 0xa0;
+   
+    init_system();
+    
+    init_LCD();
+    
+    MOVE(1, 7);
+    STRING("TIME", 4);
+    MOVE(2, 5);
+    STRING("00:00:00", 8);
+    
+    
+    while(1)
+    {
+      if(isRun){
+	 _delay_ms(50);
+	 SEC++;
+	 if(SEC >= 60)
+	 {
+	    SEC = 0;
+	    MIN++;
+	    if(MIN >= 60)
+	    {
+	       MIN = 0;
+	       HOUR++;
+	       if(HOUR >= 24)
+	       {
+		  HOUR = 0;
+	       }
+	    }
+	 }
+	 MOVE(2, 5); DATA(HOUR / 10 + 0x30);
+	 DATA(HOUR % 10 + 0x30);
+	 MOVE(2, 8); DATA(MIN / 10 + 0x30);
+	 DATA(MIN % 10 + 0x30);
+	 MOVE(2, 11); DATA(SEC / 10 + 0x30);
+	 DATA(SEC % 10 + 0x30);
+      }
+    }
+}
+
+//LCD에 명령을 쓰기 위한 함수
+
+void COMMAND(unsigned char byte)
+{
+    PORTG = 0xFC;        //PORTG에 RS, RW, E 가 연결되어 있다.
+    PORTC = byte;          //PORTC에 데이터버스가 연결되어 있다.
+    PORTG ^= 0x04;        //E 신호를 H->L로 하기 위해
+    _delay_ms(2);         //LCD 내부 동작시간
+}
+
+//LCD에 데이터를 쓰기 위한 함수
+
+void DATA(unsigned char byte)
+{
+    PORTG = 0xFD;            //PORTG에 RS, RW, E 가 연결되어 있다.
+    PORTC = byte;           //PORTC에 데이터버스가 연결되어 있다.
+    PORTG ^= 0x04;           //E 신호를 H->L로 하기 위해
+    _delay_ms(2);            //LCD 내부 동작시간
+}
+
+// ATmega128의 포트 초기화
+
+void init_system(void)
+{
+     DDRC = 0xFF;              //LCD 데이터 버스
+     PORTC = 0xFF;
+     DDRG = 0xFF;              //LCD 컨트롤 신호(PG2=LCD_EN, PG1=RW, PG0=RS)
+     PORTG = 0xFF;
+}
+
+// LCD 초기화
+
+void init_LCD(void)
+{
+       _delay_ms(15);       //15msec 이상 시간지연
+       COMMAND(0x38);         //Function set, 기능셋(데이터버스 8비트, 라인수:2줄)
+       _delay_ms(5);        //4.1msec 이상 시간지연, 생략가능
+       COMMAND(0x38);         //기능셋, 생략 가능
+       _delay_us(100);      //100usec 이상 시간지연, 생략가능
+       COMMAND(0x38);          //기능셋, 생략 가능
+       COMMAND(0x08);          //표시 Off , 생략 가능
+       COMMAND(0x01);       //화면 지우기
+       COMMAND(0x06);        //엔트리모드셋
+       COMMAND(0x0C);         //표시 on
+}
+
+ISR(INT6_vect)
+{
+   isRun = !isRun;
+}
+
+ISR(INT7_vect)
+{
+   isRun = 0;
+   MOVE(2, 5); 
+   STRING("00:00:00", 8);
+   SEC = 0; MIN = 0; HOUR = 0;
+}
